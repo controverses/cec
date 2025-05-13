@@ -1,6 +1,4 @@
 title: Centre d'exploration des controverses
-logo: /assets/img/logo.png
-description: Minimal is a theme for GitHub Pages.
-show_downloads: true
-google_analytics:
+logo: http://www.sciencespo.fr/sites/all/themes/SPresponsive/images/ScPo-logo-rouge-400.png
+description: 
 theme: jekyll-theme-minimal
