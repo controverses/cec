@@ -1,53 +1,60 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>{{ site.title | default: site.github.repository_name }} by {{ site.github.owner_name }}</title>
-    <link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
-    <link type="text/css" rel="stylesheet" href="jquery.dropdown.css" />
-    <script type="text/javascript" src="jquery.dropdown.js"></script>
-    <script src="{{ '/assets/js/scale.fix.js' | relative_url }}"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% seo %}
+    <link rel="stylesheet" href="{{ "/assets/css/style.css?v=" | append: site.github.build_revision | relative_url }}">
     <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
     <![endif]-->
   </head>
   <body>
     <div class="wrapper">
       <header>
-        <h1 class="header">{{ site.title | default: site.github.repository_name }}</h1>
-        <ul>
-          <li><small><a href="https://controverses.github.io/website">Accueil</a></small></li>
-          <li><small><a href="https://controverses.github.io/website">Controverses mode d'emploi</a></small></li>
-          <li><small><a href="https://controverses.github.io/website/page1">Bibliothèque de cas</a></small></li>
-          <li><small><a href="https://controverses.github.io/website/page1">Enjeux épistémologiques</a></small></li>
-          <li><small><a href="https://controverses.github.io/website/page1">Simulations de débat</a></small></li>
-        </ul>
-      </header>
+        
+        <p></p>
+        
+        {% if site.logo %}
+          <img src="{{site.logo | relative_url}}" alt="Logo" />
+        {% endif %}
 
-       <section>
-        {{ content }}
+        <p></p>
+        
+        <p>{{ site.description | default: site.github.project_tagline }}</p>
+        
+        <!--
+        <ul class="downloads">
+          <li><a href=index>Enjeux des débats</strong></a></li>
+          <li><a href=format>Format et déroulé</strong></a></li>
+          <li><a href=acteurs>Acteurs et arguments</strong></a></li>
+        </ul> -->
+
+      </header>
+      <section>
+
+      {{ content }}
+
       </section>
-      
       <footer>
-        <p><small>Institut des Controverses et de l'Innovation</small></p>
-        <p><small>médialab</small></p>
+        {% if site.github.is_project_page %}
+        <p><a href="mailto:thomas.tari@sciencespo.fr">thomas tari</a> | sociologist @ médialab</p>
+        <p>pedagogical team | antoine airault-actéon, luna arbassette, cosma caze, léa delmaire, céline eschenbrenner, valentin goujon, laure manach, émilie pasquier, clémence seurat and noémie suissa</p>
+        {% endif %}
       </footer>
     </div>
-    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    <script src="{{ "/assets/js/scale.fix.js" | relative_url }}"></script>
     {% if site.google_analytics %}
-      <script type="text/javascript">
-        var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-        document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-      </script>
-      <script type="text/javascript">
-        try {
-          var pageTracker = _gat._getTracker("{{ site.google_analytics }}");
-        pageTracker._trackPageview();
-        } catch(err) {}
-      </script>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', '{{ site.google_analytics }}', 'auto');
+      ga('send', 'pageview');
+    </script>
     {% endif %}
   </body>
 </html>
